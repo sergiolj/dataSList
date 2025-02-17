@@ -1,7 +1,4 @@
-package toRemoveRust;
-
-import java.util.InputMismatchException;
-import java.util.Scanner;
+package javaRevisionExercises;
 
 public class RelationalOperators extends Operand {
 
