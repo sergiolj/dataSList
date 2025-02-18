@@ -65,9 +65,10 @@ public class SequentialAlgorithm extends Operand {
                 System.out.print(n1+",");
                 n1++;
             }
+            int lastPrime = lastPrime();
             for (int i = n1; i <= n2; i++) {
                 if (testPrime(i)){
-                    if(i==lastPrime()) {
+                    if(i==lastPrime) {
                         System.out.print(i);
                     }else{
                         System.out.print(i+",");
