@@ -1,4 +1,4 @@
-package javaRevisionExercises;
+package javaRevisionExercises.models;
 
 public class RelationalOperators extends Operand {
 

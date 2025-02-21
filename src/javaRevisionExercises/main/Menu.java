@@ -1,6 +1,6 @@
 package javaRevisionExercises.main;
 
-import javaRevisionExercises.*;
+import javaRevisionExercises.models.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

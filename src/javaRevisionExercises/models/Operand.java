@@ -1,4 +1,4 @@
-package javaRevisionExercises;
+package javaRevisionExercises.models;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
