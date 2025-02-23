@@ -1,4 +1,4 @@
-package toRemoveRust;
+package javaRevisionExercises.models;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -7,8 +7,6 @@ public class IMCCalculator {
     private double imc;
     private String name;
     private double height;
-    private char gender;
-    Scanner sc = new Scanner(System.in);
 
     public void menu(Scanner sc) {
         boolean running = true;
@@ -33,7 +31,7 @@ public class IMCCalculator {
 
             while (invalidGender) {
                 System.out.print("Enter your gender (m) Male or (f) Female: ");
-                gender = sc.next().toUpperCase().charAt(0);
+                char gender = sc.next().toUpperCase().charAt(0);
                 sc.nextLine();
 
                 switch (gender) {
@@ -50,20 +48,21 @@ public class IMCCalculator {
                 }
             }
             running = false;
+            System.out.println("Exiting IMC Calculator Program...");
         }
     }
 
     public void maleImcCalc(){
         imc = (72.7* height)-58;
-        response(imc);
+        result(imc);
     }
 
     public void femaleImcCalc(){
         imc = (62.1 * height)-44.7;
-        response(imc);
+        result(imc);
     }
 
-    public void response(double imc){
+    public void result(double imc){
         System.out.printf("\nHello %s, according to IMC calculation method, your optimal weight it is %.2f kg\n",name, imc);
     }
 }

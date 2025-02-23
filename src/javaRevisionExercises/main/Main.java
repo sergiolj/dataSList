@@ -1,6 +1,4 @@
-package toRemoveRust;
-
-import java.util.Scanner;
+package javaRevisionExercises.main;
 
 public class Main {
     public static void main(String[] args) {
