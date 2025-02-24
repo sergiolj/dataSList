@@ -1,15 +1,12 @@
 package list1.tadExerc.tad;
 
 import list1.tadExerc.interfaces.PriorityClassifications;
-import list1.tadExerc.models.NaturalPerson;
+import list1.tadExerc.models.Patient;
 
-import java.time.LocalDate;
-
-public class TadHospital extends MyListQueue<NaturalPerson> implements PriorityClassifications<NaturalPerson> {
-    private LocalDate timeArrived;
+public class TadHospital extends MyListQueue<Patient> implements PriorityClassifications<Patient> { ;
 
     @Override
-    public int priorityRules(NaturalPerson obj) {
+    public int priorityRules(Patient obj) {
         return 0;
     }
 }

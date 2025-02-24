@@ -4,12 +4,10 @@ import java.time.Year;
 
 public class Sport {
     private String name;
-    private String championshipName;
-    private Year year;
+    private String description;
 
-    public Sport(String name, String championshipName, Year year) {
+    public Sport(String name, String description) {
         this.name = name;
-        this.championshipName = championshipName;
-        this.year = year;
+        this.description = description;
     }
 }

@@ -1,9 +1,11 @@
 package list1.tadExerc.interfaces;
 
-public interface RationalData <T> {
-    double create(T obj);
+import list1.tadExerc.models.RationalNumber;
+
+public interface RationalData {
+    double create(RationalNumber number);
     double sum();
     double multiply();
-    boolean isEqual(T obj1, T obj2);
+    boolean isEqual(RationalNumber number, RationalNumber otherNumber);
 
 }

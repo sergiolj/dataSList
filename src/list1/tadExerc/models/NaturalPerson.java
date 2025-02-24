@@ -4,6 +4,7 @@ public class NaturalPerson {
     private String name;
     private String socialSecurityNumber;
 
+
     public NaturalPerson(String name, String socialSecurityNumber) {
         this.name = name;
         this.socialSecurityNumber = socialSecurityNumber;
