@@ -1,9 +1,8 @@
 package list1.tadExerc.tad;
 
 import list1.tadExerc.interfaces.IMyList;
-import list1.tadExerc.interfaces.IOrder;
 
-public class MyList <T> implements IMyList<T> , IOrder<T> {
+public class MyList <T> implements IMyList<T> {
     @Override
     public boolean add(T obj) {
         return false;
@@ -37,11 +36,6 @@ public class MyList <T> implements IMyList<T> , IOrder<T> {
     @Override
     public void remove() {
 
-    }
-
-    @Override
-    public double bill() {
-        return 0;
     }
 
     @Override

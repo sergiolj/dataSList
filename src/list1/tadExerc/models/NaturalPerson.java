@@ -1,16 +1,25 @@
 package list1.tadExerc.models;
 
-public class Client {
+public class NaturalPerson {
     private String name;
     private String socialSecurityNumber;
 
-    public Client(String name, String socialSecurityNumber) {
+    public NaturalPerson(String name, String socialSecurityNumber) {
         this.name = name;
         this.socialSecurityNumber = socialSecurityNumber;
     }
 
-    public Client(String name) {
+    public NaturalPerson(NaturalPerson person) {
+        this.name = person.name;
+        this.socialSecurityNumber = person.socialSecurityNumber;
+    }
+
+    public NaturalPerson(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override

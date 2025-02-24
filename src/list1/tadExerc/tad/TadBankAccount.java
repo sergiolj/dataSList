@@ -2,7 +2,7 @@ package list1.tadExerc.tad;
 
 import list1.tadExerc.interfaces.IAccount;
 
-public class TadContaBancaria <T> implements IAccount<T> {
+public class TadBankAccount<T> implements IAccount<T> {
     @Override
     public double getBalance() {
         return 0;

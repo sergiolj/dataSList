@@ -2,7 +2,7 @@ package list1.tadExerc.tad;
 
 import list1.tadExerc.interfaces.RationalData;
 
-public class TadRacional <T> implements RationalData<T> {
+public class TadRational<T> implements RationalData<T> {
 
     @Override
     public double create(T obj) {

@@ -1,10 +1,10 @@
 package list1.tadExerc.models;
 
 public class CheckingAccount {
-    private Client client;
+    private NaturalPerson client;
     private String accountNumber;
 
-    public CheckingAccount(Client client, String accountNumber) {
+    public CheckingAccount(NaturalPerson client, String accountNumber) {
         this.client = client;
         this.accountNumber = accountNumber;
     }

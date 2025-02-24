@@ -1,18 +1,22 @@
 package list1.tadExerc.models;
 
-public class OrderItem {
-    private Client costumerName;
-    private String item;
+import java.time.LocalDate;
+
+public class Order {
+    private NaturalPerson costumerName;
+    private LocalDate orderDate;
+    private Product item;
     private int quantity;
     private double price;
     private double total;
 
-    public OrderItem(Client costumerName, String item, int quantity, double price) {
+    public Order(NaturalPerson costumerName, Product item, int quantity) {
         this.costumerName = costumerName;
         this.item = item;
         this.quantity = quantity;
-        this.price = price;
-        this.total = price * quantity;
+        this.price = item.getPrice();
+        this.total = item.getPrice() * quantity;
+        this.orderDate = LocalDate.now();
     }
 
     @Override

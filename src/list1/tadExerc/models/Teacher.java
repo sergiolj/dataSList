@@ -1,20 +1,22 @@
 package list1.tadExerc.models;
 
-public class Teacher {
-    private String name;
+public class Teacher extends NaturalPerson{
     private String codClass;
 
-
-    public Teacher(String name, String codClass) {
-        this.name = name;
+    public Teacher(String name, String socialSecurityNumber, String codClass) {
+        super(name, socialSecurityNumber);
         this.codClass = codClass;
+    }
 
+    public Teacher(NaturalPerson person, String codClass) {
+        super(person);
+        this.codClass = codClass;
     }
 
     @Override
     public String toString() {
         return "Teacher{" +
-                "name='" + name + '\'' +
+                "name='" + super.getName() + '\'' +
                 ", codClass='" + codClass + '\'' +
                 '}';
     }
