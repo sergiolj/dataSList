@@ -1,6 +1,6 @@
 package list1.tadExerc.interfaces;
 
-public interface IMyQueue<T> {
+public interface MyQueue<T> {
     boolean isEmpty();
     int size();
     T peek();

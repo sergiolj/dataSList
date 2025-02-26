@@ -1,8 +1,8 @@
 package list1.tadExerc.tad;
 
-import list1.tadExerc.interfaces.IMyQueue;
+import list1.tadExerc.interfaces.MyQueue;
 
-public class MyListQueue<T> implements IMyQueue<T> {
+public class MyListQueue<T> implements MyQueue<T> {
 
     @Override
     public boolean isEmpty() {

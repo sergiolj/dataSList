@@ -3,7 +3,7 @@ package list1.tadExerc.tad;
 import list1.tadExerc.interfaces.RationalData;
 import list1.tadExerc.models.RationalNumber;
 
-public class TadRational implements RationalData {
+public class Rational implements RationalData {
 
     @Override
     public double create(RationalNumber number) {

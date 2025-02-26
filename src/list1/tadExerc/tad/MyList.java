@@ -1,8 +1,6 @@
 package list1.tadExerc.tad;
 
-import list1.tadExerc.interfaces.IMyList;
-
-public class MyList <T> implements IMyList<T> {
+public class MyList <T> implements list1.tadExerc.interfaces.MyList<T> {
     @Override
     public boolean add(T obj) {
         return false;

@@ -1,8 +1,8 @@
 package list1.tadExerc.tad;
 
-import list1.tadExerc.interfaces.IMyStack;
+import list1.tadExerc.interfaces.MyStack;
 
-public class MyListStack<T> implements IMyStack<T> {
+public class MyListStack<T> implements MyStack<T> {
 
     @Override
     public T push(T obj) {

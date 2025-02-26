@@ -4,15 +4,19 @@ import list1.tadExerc.tad.MyList;
 
 public class Team {
     private String teamName;
-    private String sportName;
+    private Sport sport;
     private MyList<Athlete> athletes = new MyList<>();
 
-    public Team(String teamName, String sportName) {
+    public Team(String teamName, Sport sport) {
         this.teamName = teamName;
-        this.sportName = sportName;
+        this.sport = sport;
     }
 
-    public MyList<Athlete> getAthletes() {
-        return athletes;
+    public void addAthlete(Athlete athlete){
+        if(athlete != null){
+            athletes.add(athlete);
+        }else{
+         throw new NullPointerException("Athlete cannot be null");
+        }
     }
 }

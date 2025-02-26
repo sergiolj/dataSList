@@ -82,7 +82,7 @@ public class Main {
             var num1 = new RationalNumber(2, 4);
             var num2 = new RationalNumber(3, 1);
             var num3 = new RationalNumber(4, 3);
-            TadRational opComRacionais = new TadRational();
+            Rational opComRacionais = new Rational();
             opComRacionais.create(new RationalNumber(1, 2));
             opComRacionais.sum();
             opComRacionais.multiply();
@@ -99,7 +99,7 @@ public class Main {
 
         var client1 = new NaturalPerson("Bruce Benner", "1212121");
         var account = new CheckingAccount(client1, "1111");
-        TadBankAccount<CheckingAccount> conta = new TadBankAccount<>();
+        BankAccount<CheckingAccount> conta = new BankAccount<>();
 
         conta.getBalance();
         conta.deposit(1000.00);
@@ -169,14 +169,14 @@ public class Main {
         var item2 = new Order(client2, product2, 2);
         var item3 = new Order(client2, product3, 1);
 
-        TadPurchaseList orderClient1 = new TadPurchaseList();
+        PurchaseList orderClient1 = new PurchaseList();
         orderClient1.add(item1);
         orderClient1.add(item2);
         orderClient1.add(item3);
 
         orderClient1.bill();
 
-        MyListQueue<TadPurchaseList> kitchenOrder = new MyListQueue<>();
+        MyListQueue<PurchaseList> kitchenOrder = new MyListQueue<>();
         kitchenOrder.poll(orderClient1);
     }
 
@@ -202,7 +202,7 @@ public class Main {
     public static void exercise11() {
         System.out.println("11 – Crie um TAD para representar um estoque de produtos de uma loja. Cada\n" +
                 "produto deve conter nome, código, quantidade em estoque e preço unitário.");
-        System.out.println("TAD Classes -  Product.java e MyList.java\n");
+        System.out.println("TAD Classes - Product.java e MyList.java\n");
 
         var product4 = new Product("Iphone 12", 122, 3300.00, 10);
         var product5 = new Product("Mouse Logitech", 1, 50.00, 2);
@@ -225,7 +225,7 @@ public class Main {
         var purchase1 = new Order(client2, product4, 1);
         var purchase2 = new Order(client2, product5, 1);
 
-        TadPurchaseList orders = new TadPurchaseList();
+        PurchaseList orders = new PurchaseList();
         orders.add(purchase1);
         orders.add(purchase2);
 
@@ -235,27 +235,29 @@ public class Main {
     public static void exercise13() {
         System.out.println("13 – Crie um TAD para representar um campeonato esportivo. Deve conter\n" +
                 "nome do campeonato, times participantes e sistema de pontuação.");
-        System.out.println("TAD Classes -  Athlete.java, Team.java, Championship.java\n");
+        System.out.println("TAD Classes -  Sport.java, Athlete.java, Team.java, Championship.java\n");
+
+        Sport sport = new Basketball();
 
         var athlete1 = new Athlete("Michael Jordan", "32154125714", 29);
         var athlete2 = new Athlete("Scott Pippen", "43432423411", 26);
         var athlete3 = new Athlete("Magic Johnson", "89825379867", 32);
         var athlete4 = new Athlete("Karl Malone", "1231124121", 28);
 
-        var team1 = new Team("Chicago Bulls", "Basketball");
-        var team2 = new Team("Los Angeles Lakers", "Basketball");
-        var team3 = new Team("Utah Jazz", "Basketball");
+        var team1 = new Team("Chicago Bulls", sport);
+        var team2 = new Team("Los Angeles Lakers", sport);
+        var team3 = new Team("Utah Jazz", sport);
 
-        team1.getAthletes().add(athlete1);
-        team1.getAthletes().add(athlete2);
-        team2.getAthletes().add(athlete3);
-        team3.getAthletes().add(athlete4);
+        team1.addAthlete(athlete1);
+        team1.addAthlete(athlete2);
+        team2.addAthlete(athlete3);
+        team3.addAthlete(athlete4);
 
-        Championship championship = new Championship("NBA");
+        Championship<Basketball> championship = new Championship("NBA");
 
-        championship.getTeams().add(team1);
-        championship.getTeams().add(team2);
-        championship.getTeams().add(team3);
+        championship.addTeam(team1);
+        championship.addTeam(team2);
+        championship.addTeam(team3);
 
         championship.scoreSystem();
     }
@@ -263,39 +265,39 @@ public class Main {
     public static void exercise14() {
         System.out.println("14 – Crie um TAD para representar um funcionário de uma empresa. Deve\n" +
                 "conter nome, cargo, salário e data de admissão.");
-        System.out.println("TAD Classes - Employe.java, Company.java\n");
+        System.out.println("TAD Classes - Employee.java, Company.java\n");
 
-        var employe1 = new Employe("Angela Peixoto Santana",
+        var employee1 = new Employee("Angela Peixoto Santana",
                 "57623547235", 20000.00, "Chair Professor",
                 LocalDate.of(2025, 01, 01));
-        var employe2 = new Employe("Mario Jorge Pereira",
+        var employee2 = new Employee("Mario Jorge Pereira",
                 "41338051854", 20000.00, "Chair Proefessor",
                 LocalDate.of(2025, 01, 01));
 
-        var company = new Company("MIT Education", "Massachusets", "11-11223232");
+        var company = new Company("MIT Education");
 
-        company.getEmployees().add(employe1);
-        company.getEmployees().add(employe2);
+        company.addEmployee(employee1);
+        company.addEmployee(employee2);
 
     }
 
     public static void exercise15() {
         System.out.println("15 – Crie um TAD para representar uma fila de atendimento em um hospital.\n" +
                 "Deve conter nome do paciente, prioridade e horário de chegada.");
-        System.out.println("TAD Classes - Patient.java e TadHospital.java\n");
+        System.out.println("TAD Classes - Patient.java e Hospital.java\n");
 
-        var pacient1 = new Patient("Bruce Benner", "34374384723");
-        var pacient2 = new Patient("Tony Stark", "1231341341");
-        var pacient3 = new Patient("Pepper Pots", "3423423552");
+        var patient1 = new Patient("Bruce Benner", "34374384723");
+        var patient2 = new Patient("Tony Stark", "1231341341");
+        var patient3 = new Patient("Pepper Pots", "3423423552");
 
-        TadHospital pacientList = new TadHospital();
+        Hospital pacientList = new Hospital();
 
-        pacientList.poll(pacient1);
-        pacientList.poll(pacient2);
-        pacientList.poll(pacient3);
+        pacientList.poll(patient1);
+        pacientList.poll(patient2);
+        pacientList.poll(patient3);
 
         pacientList.peekFirst();
-        pacientList.priorityRules(pacient1);
+        pacientList.priorityRules(patient3);
     }
 
     public static void exercise16() {

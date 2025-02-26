@@ -3,18 +3,22 @@ package list1.tadExerc.models;
 import list1.tadExerc.tad.MyList;
 
 public class Company {
-        private String name;
+        private final String businessTaxId;
+        private final String name;
         private String address;
         private String phone;
-        private MyList<Employe> employees = new MyList<>();
+        private final MyList<Employee> employees = new MyList<>();
 
-        public Company(String name, String address, String phone) {
+    public Company(String businessTaxId, String name, String address, String phone) {
+        this.businessTaxId = businessTaxId;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+    }
+
+    public Company(String name) {
             this.name = name;
-            this.address = address;
-            this.phone = phone;
-        }
-        public Company(String name) {
-            this.name = name;
+            this.businessTaxId = null;
         }
 
     public String getAddress() {
@@ -36,7 +40,11 @@ public class Company {
             return name;
     }
 
-    public MyList<Employe> getEmployees() {
-        return employees;
+    public void addEmployee(Employee e) {
+        if(e != null) {
+            employees.add(e);
+        }else{
+            throw new NullPointerException("Employee cannot be null");
+        }
     }
 }

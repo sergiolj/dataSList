@@ -1,6 +1,6 @@
 package list1.tadExerc.interfaces;
 
-public interface IMyStack <T> {
+public interface MyStack<T> {
     /**
      * push() Pushes an item onto the top of the stack
      * @param obj Is the object give to the method to add at the top of

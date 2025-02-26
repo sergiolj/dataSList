@@ -1,6 +1,6 @@
 package list1.tadExerc.interfaces;
 
-public interface IMyList <T> {
+public interface MyList<T> {
     boolean add(T obj);
     T get(int index);
     T remove(int index);
