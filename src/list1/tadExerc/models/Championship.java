@@ -43,6 +43,11 @@ public class Championship<T extends Sport> implements Game {
     }
 
     @Override
+    public void updateGame() {
+
+    }
+
+    @Override
     public void addGameResult() {
 
     }
