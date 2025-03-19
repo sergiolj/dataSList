@@ -1,5 +1,10 @@
 package list2;
 
+/**
+ * 3 – Escreva em java um método recursivo que receba um número inteiro na base decimal e realize a
+ * conversão deste número para base binária.
+ */
+
 public class BinaryConverter {
 
     /*
