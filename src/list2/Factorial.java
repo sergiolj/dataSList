@@ -1,5 +1,9 @@
 package list2;
 
+/**
+ * 2 - Desenvolva um programa em java que calcule o fatorial de um número x.
+ */
+
 public class Factorial {
 
     public int factorial(int n) {
