@@ -1,6 +1,4 @@
-package list2.recursive.tests;
-
-import list2.recursive.GreatestCommonDivisor;
+package list2;
 
 public class TestGCD {
     public static void main(String[] args) {

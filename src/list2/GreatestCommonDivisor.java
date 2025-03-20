@@ -1,4 +1,4 @@
-package list2.recursive;
+package list2;
 
 public class GreatestCommonDivisor {
 
