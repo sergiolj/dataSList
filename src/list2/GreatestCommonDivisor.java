@@ -1,5 +1,18 @@
-package list2.recursive;
-
+package list2;
+/*
+ * 1 – O método a seguir, executa o cálculo do MDC (máximo divisor comum) de dois inteiros positivos m e n.
+ * Escreva um método recursivo equivalente.
+ *
+public static int CalculaMDC(int m, int n){
+    int r;
+    do{
+        r = m%n;
+        m = n;
+        n = r;
+    } while (r != 0);
+    return m;
+}
+ */
 public class GreatestCommonDivisor {
 
     public int GCDCalc(int m, int n){
