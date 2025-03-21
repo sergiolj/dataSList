@@ -23,7 +23,8 @@ public class HanoiTowerProcedural {
         }
         viewStackSideBySide();
     }
-    private void viewStackSideBySide() {
+    private
+    void viewStackSideBySide() {
         List<Integer> iA = new ArrayList<>(base);
         List<Integer> iB = new ArrayList<>(auxiliary);
         List<Integer> iD = new ArrayList<>(destiny);
