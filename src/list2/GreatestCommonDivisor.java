@@ -25,18 +25,18 @@ public class GreatestCommonDivisor {
         return m;
     }
 
-    public void CGDCalcRec(int m, int n){
+    public void GCDCalcRecPrint(int m, int n){
         int r;
         r = m%n;
         if(r == 0){
             System.out.println("GCD is: " + n);
             return;
         }
-        CGDCalcRec(n,r);
+        GCDCalcRecPrint(n,r);
     }
 
     public int GCDCalcRec(int m, int n){
-        if (n==0) return n; // Stop condition
+        if (m%n==0) return n; // Stop condition
         return GCDCalcRec(n,m%n); //Recursive condition
     }
 }

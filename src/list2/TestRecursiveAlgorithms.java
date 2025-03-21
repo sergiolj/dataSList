@@ -9,8 +9,8 @@ public class TestRecursiveAlgorithms {
         System.out.println("\nExercício 1 - Maior divisor comum");
 
         System.out.println(gcd.GCDCalc(12,18));
-        gcd.CGDCalcRec(12,18);
-        System.out.println(gcd.GCDCalc(12,18));
+        gcd.GCDCalcRecPrint(12,18);
+        System.out.println(gcd.GCDCalcRec(12,18));
 
 
         var f = new Factorial();
@@ -110,7 +110,8 @@ public class TestRecursiveAlgorithms {
         System.out.println(higher.getHigherNumberGPT());
 
         var calc = new LeastCommonMultiple();
-        System.out.println("\nExercício 15 -Mínimo múltiplo comum MMC");
-        System.out.println(calc.getLCM(12,23));
+        System.out.println("\nExercício 15 - Mínimo múltiplo comum MMC");
+        System.out.println(calc.getLeastCommonMultiple(5,24));
+        System.out.println(calc.getLeastCommonMultipleRec(5,24));
     }
 }
