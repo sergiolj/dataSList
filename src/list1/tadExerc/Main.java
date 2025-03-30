@@ -1,5 +1,6 @@
 package list1.tadExerc;
 
+import avaliacao.Disciplina;
 import list1.tadExerc.models.*;
 import list1.tadExerc.tad.*;
 
@@ -316,5 +317,16 @@ public class Main {
         diary.add(note1);
         diary.add(note2);
         diary.add(note3);
+    }
+
+    public static void disciplinasCurso() {
+        var d1 = new Disciplina("Banco de dados", "Angela Peixoto Santana", 10);
+        var d2 = new Disciplina("Introdução a Engenharia de Software", "Angela Peixoto Santana", 10);
+        var d3 = new Disciplina("Lógica de Programação e Algoritmos", "Christianne Orrico Dalforno", 10);
+
+        MyList<Disciplina> disciplinas = new MyList<>();
+        disciplinas.add(d1);
+        disciplinas.add(d2);
+        disciplinas.add(d3);
     }
 }
