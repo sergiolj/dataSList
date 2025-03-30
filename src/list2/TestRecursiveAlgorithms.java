@@ -1,7 +1,17 @@
 package list2;
 
+import list2.util.ArrayInt;
+
 public class TestRecursiveAlgorithms {
     public static void main(String[] args) {
+
+        var gcd = new GreatestCommonDivisor();
+        System.out.println("\nExercício 1 - Maior divisor comum");
+
+        System.out.println(gcd.GCDCalc(12,18));
+        gcd.GCDCalcRecPrint(12,18);
+        System.out.println(gcd.GCDCalcRec(12,18));
+
 
         var f = new Factorial();
         System.out.println("\nExercício 2 - Fatorial de um número");
@@ -55,7 +65,7 @@ public class TestRecursiveAlgorithms {
         System.out.println("\nExercício 8 - Soma de números naturais");
 
         System.out.println(sn.sum(3));
-        System.out.println(sn.sumRec(0));
+        System.out.println(sn.sumRec(3));
 
         var mp = new MathPow();
         System.out.println("\nExercício 9 - Calcular potência sem multiplicação");
@@ -79,9 +89,29 @@ public class TestRecursiveAlgorithms {
         System.out.println(rev.reverseRec("Sauron"));
 
         var list = new ArrayInt(5,10);
+        var sum = new SumArrayInt(list);
         System.out.println("\nExercício 12 - Soma de elementos de array");
-        list.printVector();
-        System.out.println(list.sum());
-        System.out.println(list.sumRec());
+        System.out.println(list.toString());
+        System.out.println(sum.sum());
+        System.out.println(sum.sumRec());
+
+        var word = new CharacterCounter();
+        System.out.println("\nExercício 13 - Conta quantas vezes determinado caractere aparece na palavra");
+        System.out.println(word.countChar("O rato roeu a roupa do Rei de Roma", 'R'));
+        System.out.println(word.getCharacterCount("O rato roeu a roupa do Rei de Roma", 'R'));
+        System.out.println(word.getCharacterCountSimple("O rato roeu a roupa do Rei de Roma", 'R'));
+
+        var list2 = new ArrayInt(9,100);
+        var higher  = new HigherNumber(list2);
+        System.out.println("\nExercício 14 - Encontra o maior número do vetor");
+        System.out.println(list2.toString());
+        System.out.println(higher.getHigherNumber());
+        System.out.println(higher.getHigherNumberRec());
+        System.out.println(higher.getHigherNumberGPT());
+
+        var calc = new LeastCommonMultiple();
+        System.out.println("\nExercício 15 - Mínimo múltiplo comum MMC");
+        System.out.println(calc.getLeastCommonMultiple(5,24));
+        System.out.println(calc.getLeastCommonMultipleRec(5,24));
     }
 }
