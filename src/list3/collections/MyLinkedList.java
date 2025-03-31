@@ -1,29 +1,43 @@
-package list3;
+package list3.collections;
 
 import list3.interfaces.MyILinkedList;
+import list3.model.Node;
 
 public class MyLinkedList <T> implements MyILinkedList <T> {
     private Node<T> head;
     private Node<T> tail;
     private int count = 0;
 
-    private void addToBeginning(T element) {
+    private boolean addToBeginning(T element) {
         Node<T> newNode = new Node<T>(element, null);
         this.head = newNode;
         this.tail = newNode;
         count++;
+        return true;
     }
 
     @Override
-    public void add(T element) {
+    public boolean add(T element) {
+        if(element == null) {
+            return false;
+        }
         if (count == 0) {
-            addToBeginning(element);
+            return addToBeginning(element);
         } else {
             Node<T> newNode = new Node<T>(element);
             this.tail.setNext(newNode);
             this.tail = newNode;
             count++;
+            return true;
         }
+    }
+
+    @Override
+    public boolean addAtBeginning(T element) {
+        Node<T> newNode = new Node<T>(element, this.head);
+        this.head = newNode;
+        count++;
+        return true;
     }
 
     @Override
@@ -31,6 +45,7 @@ public class MyLinkedList <T> implements MyILinkedList <T> {
         int index = firstElementIndexOf(element);
         if (index != -1) {
             remove(index);
+            count--;
         } else {
             System.out.println("Element not found");
         }
@@ -103,7 +118,7 @@ public class MyLinkedList <T> implements MyILinkedList <T> {
         return false;
     }
 
-    boolean isValidRange(int index){
+    public boolean isValidRange(int index){
         return index >= 0 && index < count;
     }
 
@@ -131,8 +146,9 @@ public class MyLinkedList <T> implements MyILinkedList <T> {
     @Override
     public boolean containsElement(T node) {
         Node<T> current = head;
+        String searchedElement = node.toString().toLowerCase();
         do {
-            if (current.getElement().equals(node)) {
+            if (String.valueOf(current.getElement()).toLowerCase().equals(searchedElement)) {
                 return true;
             } else {
                 current = current.getNext();
@@ -145,8 +161,9 @@ public class MyLinkedList <T> implements MyILinkedList <T> {
     public int firstElementIndexOf(T node) {
         int index = 0;
         Node<T> current = head;
+        String searchedElement = node.toString().toLowerCase();
         do {
-            if (current.getElement().equals(node)) {
+            if (String.valueOf(current.getElement()).equals(searchedElement)) {
                 return index;
             } else {
                 current = current.getNext();
@@ -154,6 +171,11 @@ public class MyLinkedList <T> implements MyILinkedList <T> {
             }
         }while (current != null);
         return -1;
+    }
+
+    @Override
+    public boolean order() {
+        return false;
     }
 
     @Override

@@ -1,15 +1,20 @@
 package list3.interfaces;
 
+import list3.model.Node;
+
 public interface MyILinkedList <T> {
 
-    void add(T node);
-    void removeElement(T node);
+    boolean add(T element);
+    boolean addAtBeginning(T element);
+    void removeElement(T element);
     T removeLastAndGet();
     boolean removeLast();
     boolean remove(int index);
     boolean eraseAll();
     boolean isEmpty();
     int getSize();
-    boolean containsElement(T node);
-    int firstElementIndexOf(T node);
+    boolean containsElement(T element);
+    int firstElementIndexOf(T element);
+
+    boolean order();
 }

@@ -1,4 +1,4 @@
-package list3;
+package list3.model;
 
 public class Teacher {
     private String name;

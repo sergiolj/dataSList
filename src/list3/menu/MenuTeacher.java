@@ -1,31 +1,35 @@
-package list3;
+package list3.menu;
+
+import list3.collections.MyLinkedList;
+import list3.model.Teacher;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Menu {
-    private MyLinkedList<Teacher> list = new MyLinkedList<>();
-    Scanner sc = new Scanner(System.in);
-    boolean running = true;
+public class MenuTeacher {
+    private final MyLinkedList<Teacher> list = new MyLinkedList<>();
+    private Scanner sc = new Scanner(System.in);
+    private boolean running = true;
 
     public void MainMenu() {
             int choice = 0;
 
             while (running) {
                 try {
-                    optionMenu();
+                    options();
                     choice = sc.nextInt();
                     sc.nextLine();
-                    functions(choice);
+                    functionSwitch(choice);
                 } catch (InputMismatchException e) {
-                    System.out.println("Opção inválida! Digite um número inteiros entre 0-5");
+                    System.out.println("\nOpção inválida! Digite um número inteiro entre 0-5");
                     sc.nextLine();
                 }
             }
-        System.out.println("Encerrando aplicação...");
+        System.out.println("\nEncerrando aplicação...");
+            sc.close();
     }
 
-    private void optionMenu(){
+    private void options(){
         System.out.println("\nCADASTRAMENTO DE PROFESSORES:");
         System.out.println("0] Finalizar Programa");
         System.out.println("1] Adicionar professor");
@@ -34,10 +38,10 @@ public class Menu {
         System.out.println("4] Apagar lista");
         System.out.println("5] Listar professores cadastrados");
 
-        System.out.print("Digite uma opção [0-5]: ");
+        System.out.print("\nDigite uma opção [0-5]: ");
     }
 
-    private void functions(int choice){
+    private void functionSwitch(int choice){
             switch (choice) {
                 case 0:
                     running = false;
@@ -65,25 +69,27 @@ public class Menu {
     private void add() {
         System.out.print("\nDigite o nome do professor: ");
         String name = sc.nextLine();
-        list.add(new Teacher(name));
+        String response = list.add(new Teacher(name)) ? "\nProfessor adicionado com sucesso" : "\nErro ao adicionar professor";
+        System.out.println(response);
     }
 
     private void remove() {
-        String response = list.removeLast() ? "Professor removido com sucesso!" :  "Impossível remover. A lista está vazia.";
+        String response = list.removeLast() ? "\nProfessor removido com sucesso!" :  "\nImpossível remover. A lista está vazia.";
         System.out.println(response);
     }
 
     private void verify() {
-        String response = list.isEmpty() ? "A lista está vazia" : "A lista contém elementos";
+        String response = list.isEmpty() ? "\nA lista está vazia" : "\nA lista contém elementos";
         System.out.println(response);
     }
 
     private void erase() {
-        String response = list.eraseAll() ? "Lista apagada com sucesso!" :  "Impossível apagar. A lista está vazia.";
+        String response = list.eraseAll() ? "\nLista apagada com sucesso!" :  "\nImpossível apagar. A lista está vazia.";
         System.out.println(response);
     }
 
     private void list() {
-        System.out.println(list);
+        String response = list.isEmpty() ? "\nA lista está vazia." : "\n" + list;
+        System.out.println(response);
     }
 }

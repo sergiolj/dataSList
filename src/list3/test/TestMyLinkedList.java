@@ -1,4 +1,6 @@
-package list3;
+package list3.test;
+
+import list3.collections.MyLinkedList;
 
 public class TestMyLinkedList {
     public static void main(String[] args) {
