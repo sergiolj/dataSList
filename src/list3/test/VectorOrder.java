@@ -8,7 +8,9 @@ public class VectorOrder {
 
     public static void main(String[] args) {
         int[] nums = new int[]{9, 3, 8, 1, 2, 7};
-        bubbleSort(nums);
+        //bubbleSort(nums);
+        search(nums, 4);
+        search(nums, 1);
     }
 
     private static void arrayPrint(int[] array) {
@@ -51,6 +53,26 @@ public class VectorOrder {
                 break;
             }
         }
+    }
+    private static int linearSearch(int[] array, int target, int index) {
+        if( index >= array.length) {
+            return -1;
+        }
+        if( array[index] == target) {
+            return index;
+        }
+        return linearSearch(array, target, index+1);
+    }
 
+    public static void search(int[] array, int target) {
+        output(linearSearch(array,target,0));
+    }
+
+    private static void output(int output){
+        if(output == -1) {
+            System.out.println("\nNúmero não localizado.");
+        }else{
+            System.out.println("\nNúmero localizado no índice " + output);
+        }
     }
 }
