@@ -16,5 +16,5 @@ public interface MyILinkedList <T> {
     boolean containsElement(T element);
     int firstElementIndexOf(T element);
 
-    boolean order();
+    boolean bobbleSorted();
 }

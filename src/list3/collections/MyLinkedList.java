@@ -54,7 +54,7 @@ public class MyLinkedList <T extends Comparable<T>> implements MyILinkedList <T>
 
     @Override
     public boolean removeLast() {
-        if (head == null) {
+        if (isEmpty()) {
             return false;
         }
         if (head == tail) {
@@ -74,7 +74,7 @@ public class MyLinkedList <T extends Comparable<T>> implements MyILinkedList <T>
 
     @Override
     public T removeLastAndGet() {
-        if (head == null) {
+        if (isEmpty()) {
             return null;
         }
         Node<T> removed = head;
@@ -136,7 +136,7 @@ public class MyLinkedList <T extends Comparable<T>> implements MyILinkedList <T>
 
     @Override
     public boolean isEmpty() {
-        return count == 0;
+        return head == null;
     }
 
     @Override
@@ -146,6 +146,9 @@ public class MyLinkedList <T extends Comparable<T>> implements MyILinkedList <T>
 
     @Override
     public boolean containsElement(T node) {
+        if (isEmpty()) {
+            return false;
+        }
         Node<T> current = head;
         String searchedElement = node.toString().toLowerCase();
         do {
@@ -160,6 +163,9 @@ public class MyLinkedList <T extends Comparable<T>> implements MyILinkedList <T>
 
     @Override
     public int firstElementIndexOf(T node) {
+        if (isEmpty()) {
+            return -1;
+        }
         int index = 0;
         Node<T> current = head;
         String searchedElement = node.toString().toLowerCase();
@@ -175,29 +181,33 @@ public class MyLinkedList <T extends Comparable<T>> implements MyILinkedList <T>
     }
 
     @Override
-    public boolean order() {
+    public boolean bobbleSorted() {
+        if (isEmpty()) {
+            return false;
+        }
+        boolean sorted;
 
-        return false;
+        do {
+            Node<T> current = head;
+            Node<T> next = head.getNext();
+            sorted = false;
+
+            System.out.println(current.getElement());
+            System.out.println(next.getElement());
+
+            while (current.getNext() != null){
+                if (current.getElement().compareTo(next.getElement()) > 0) {
+                    T tempData = next.getElement();
+                    next.setElement(current.getElement());
+                    current.setElement(tempData);
+                    sorted = true;
+                }
+                next = next.getNext();
+                current = current.getNext();
+            }
+        } while (sorted);
+        return true;
     }
-
-
-//    public void insertSorted(T data) {
-//        Node<T> newNode = new Node<>(data);
-//
-//        if (head == null || head.data.compareTo(data) > 0) {
-//            newNode.next = head;
-//            head = newNode;
-//            return;
-//        }
-//
-//        Node<T> current = head;
-//        while (current.next != null && current.next.data.compareTo(data) < 0) {
-//            current = current.next;
-//        }
-//
-//        newNode.next = current.next;
-//        current.next = newNode;
-//    }
 
     @Override
     public String toString() {

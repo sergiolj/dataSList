@@ -10,9 +10,13 @@ public class MenuStudent {
     private final MyLinkedList<Student> list = new MyLinkedList<>();
     Scanner sc = new Scanner(System.in);
     boolean running = true;
-    String clazzName = Student.class.getSimpleName();
+    private final String errorInvalidOption = "\nOpção inválida! Digite um número inteiro entre 0-5.";
+    private final String errorEmptyList = "\nA lista está vazia.";
+    private final String operationSuccess = "\nOperação realizada com sucesso!";
+    private final String operationFail = "\nErro. Operação não realizada!";
 
     public void mainMenu() {
+
         int choice = 0;
 
         while (running) {
@@ -22,7 +26,7 @@ public class MenuStudent {
                 sc.nextLine();
                 functionSwitch(choice);
             } catch (InputMismatchException e) {
-                System.out.println("\nOpção inválida! Digite um número inteiro entre 0-5");
+                System.out.println(errorInvalidOption);
                 sc.nextLine();
             }
         }
@@ -62,39 +66,47 @@ public class MenuStudent {
                 orderAZ();
                 break;
             default:
-                System.out.println("\nOpção Inválida.");
+                System.out.println(msg(errorInvalidOption));
         }
     }
 
     private void add() {
         System.out.print("\nDigite o nome do aluno: ");
         String name = sc.nextLine();
-        String response = list.add(new Student(name)) ? "\nAluno adicionado com sucesso" : "\nErro ao adicionar aluno";
+        String response = list.add(new Student(name)) ? msg(operationSuccess) : msg(operationFail);
         System.out.println(response);
     }
 
     private void remove() {
-        String response = list.removeLast() ? "\nAluno removido com sucesso!" :  "\nImpossível remover. A lista está vazia.";
+        String response = list.removeLast() ? msg(operationSuccess) : msg(errorEmptyList);
         System.out.println(response);
     }
 
     private void search() {
         System.out.print("\nDigite o nome do aluno para pesquisar: ");
-        String aluno = sc.nextLine();
-        Student student = new Student(aluno);
-        String response = list.containsElement(student) ? "\nAluno está na lista" : "\nAluno não localizado.";
+        String name = sc.nextLine();
+        Student student = new Student(name);
+        String response = list.isEmpty()? msg(errorEmptyList) :
+                          list.containsElement(student) ?
+                                  msg(operationSuccess, "Aluno ["+ name + "] localizado.")
+                                  : msg( "\nAluno [" + name + "] não localizado.");
         System.out.println(response);
     }
 
     private void list() {
-        String response = list.isEmpty() ? "\nA lista está vazia." : "\n" + list;
+        String response = list.isEmpty() ? msg(errorEmptyList) : "\n" + list;
         System.out.println(response);
     }
 
-    //NÃO IMPLEMENTADO!!
     private void orderAZ() {
-        String response = "\nPendente de Implementação.";
-        //String response = list.order() ? "\nA lista está vazia." : "\n" + list;
+        String response = list.bobbleSorted() ?  "\n" + list : msg(errorEmptyList);
         System.out.println(response);
+    }
+
+    public String msg(String defaultMsg, String e) {
+        return defaultMsg + " " + e;
+    }
+    public String msg(String defaultMsg) {
+        return defaultMsg;
     }
 }
