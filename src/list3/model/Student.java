@@ -1,6 +1,6 @@
 package list3.model;
 
-public class Student{
+public class Student implements Comparable<Student> {
     private final String name;
 
     public Student(String name) {;
@@ -14,5 +14,10 @@ public class Student{
     @Override
     public String toString() {
         return this.name;
+    }
+
+    @Override
+    public int compareTo(Student other) {
+        return this.name.compareTo(other.name);
     }
 }

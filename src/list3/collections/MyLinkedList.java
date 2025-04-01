@@ -3,7 +3,8 @@ package list3.collections;
 import list3.interfaces.MyILinkedList;
 import list3.model.Node;
 
-public class MyLinkedList <T> implements MyILinkedList <T> {
+public class MyLinkedList <T extends Comparable<T>> implements MyILinkedList <T>  {
+
     private Node<T> head;
     private Node<T> tail;
     private int count = 0;
@@ -175,8 +176,28 @@ public class MyLinkedList <T> implements MyILinkedList <T> {
 
     @Override
     public boolean order() {
+
         return false;
     }
+
+
+//    public void insertSorted(T data) {
+//        Node<T> newNode = new Node<>(data);
+//
+//        if (head == null || head.data.compareTo(data) > 0) {
+//            newNode.next = head;
+//            head = newNode;
+//            return;
+//        }
+//
+//        Node<T> current = head;
+//        while (current.next != null && current.next.data.compareTo(data) < 0) {
+//            current = current.next;
+//        }
+//
+//        newNode.next = current.next;
+//        current.next = newNode;
+//    }
 
     @Override
     public String toString() {

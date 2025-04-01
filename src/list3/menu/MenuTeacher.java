@@ -11,7 +11,7 @@ public class MenuTeacher {
     private Scanner sc = new Scanner(System.in);
     private boolean running = true;
 
-    public void MainMenu() {
+    public void mainMenu() {
             int choice = 0;
 
             while (running) {
