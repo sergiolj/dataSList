@@ -209,6 +209,27 @@ public class MyLinkedList <T extends Comparable<T>> implements MyILinkedList <T>
         return true;
     }
 
+    private int linearSearch(Node<T> current, Node<T> search, int index) {
+        if( String.valueOf(current.getElement()).equalsIgnoreCase(String.valueOf(search.getElement()))) {
+            return index;
+        }
+        if(current == this.tail) {
+            return -1;
+        }
+        current = current.getNext();
+        return linearSearch(current, search, index+1);
+    }
+
+    public int search(T element) {
+        if (isEmpty()) {
+            return -1;
+        }
+        Node<T> current = this.head;
+        Node<T> search = new Node<>(element);
+
+        return linearSearch(current, search, 0);
+    }
+
     @Override
     public String toString() {
         if(isEmpty()){

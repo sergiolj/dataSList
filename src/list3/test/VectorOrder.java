@@ -55,12 +55,16 @@ public class VectorOrder {
         }
     }
     private static int linearSearch(int[] array, int target, int index) {
-        if( index >= array.length) {
-            return -1;
-        }
         if( array[index] == target) {
             return index;
         }
+        //A Condição de parada pode ser duas nesse caso, ter chegado ao final do vetor ou lista ou ter
+        // encontrado uma igualdade, no caso, a ordem dessa verificação é importante, pois caso seja o único elemento
+        //existente o mesmo pesquisado essa condição deve ser testada primeiro.
+        if( index >= array.length) {
+            return -1;
+        }
+
         return linearSearch(array, target, index+1);
     }
 

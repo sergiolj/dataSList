@@ -21,7 +21,7 @@ public class MenuTeacher {
                     sc.nextLine();
                     functionSwitch(choice);
                 } catch (InputMismatchException e) {
-                    System.out.println("\nOpção inválida! Digite um número inteiro entre 0-5");
+                    System.out.println("\nOpção inválida! Digite um número inteiro entre 0-6");
                     sc.nextLine();
                 }
             }
@@ -37,8 +37,9 @@ public class MenuTeacher {
         System.out.println("3] Verificar, lista está vazia?");
         System.out.println("4] Apagar lista");
         System.out.println("5] Listar professores cadastrados");
+        System.out.println("6] Pesquisar professor");
 
-        System.out.print("\nDigite uma opção [0-5]: ");
+        System.out.print("\nDigite uma opção [0-6]: ");
     }
 
     private void functionSwitch(int choice){
@@ -61,6 +62,9 @@ public class MenuTeacher {
                 case 5:
                     list();
                     break;
+                case 6:
+                    search();
+                    break;
                 default:
                     System.out.println("\nOpção Inválida.");
             }
@@ -69,12 +73,12 @@ public class MenuTeacher {
     private void add() {
         System.out.print("\nDigite o nome do professor: ");
         String name = sc.nextLine();
-        String response = list.add(new Teacher(name)) ? "\nProfessor adicionado com sucesso" : "\nErro ao adicionar professor";
+        String response = list.add(new Teacher(name)) ? "\nProfessor(a) adicionado com sucesso" : "\nErro ao adicionar professor(a)";
         System.out.println(response);
     }
 
     private void remove() {
-        String response = list.removeLast() ? "\nProfessor removido com sucesso!" :  "\nImpossível remover. A lista está vazia.";
+        String response = list.removeLast() ? "\nProfessor(a) removido com sucesso!" :  "\nImpossível remover. A lista está vazia.";
         System.out.println(response);
     }
 
@@ -90,6 +94,13 @@ public class MenuTeacher {
 
     private void list() {
         String response = list.isEmpty() ? "\nA lista está vazia." : "\n" + list;
+        System.out.println(response);
+    }
+    private void search() {
+        System.out.print("\nDigite o nome do professor(a): ");
+        String name = sc.nextLine();
+        int index = list.search(new Teacher (name));
+        String response = index == -1 ? "\nPesquisa não retornou resultados." : "\nProfessor(a) " + name + " encontrado no índice ["+index+"]" ;
         System.out.println(response);
     }
 }
