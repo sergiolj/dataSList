@@ -6,6 +6,7 @@ public class TestList {
     public static void main(String[] args) {
         var lista = new ListaDuplamenteEncadeada();
         var lista1 = new ListaDuplamenteEncadeada();
+        System.out.println(lista);
 
         for (int i = 0; i < 10; i++) {
             lista1.addEsquerda(i);
