@@ -1,0 +1,226 @@
+package simuladoAV1.q2;
+
+public interface ListaEncadeadaInterface <T>{
+    boolean adicionar(T elemento);
+    boolean remover();
+}
+
+package simuladoAV1.q2;
+
+public class Node <T> {
+    private T data;
+    private Node<T> next;
+    public Node(T data) {
+        this.data = data;
+        this.next = null;
+    }
+    public T getData() {
+        return data;
+    }
+    public void setData(T data) {
+        this.data = data;
+    }
+    public Node<T> getNext() {
+        return next;
+    }
+    public void setNext(Node<T> next) {
+        this.next = next;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "data=" + data +
+                ", next=" + next +
+                '}';
+    }
+}
+
+package simuladoAV1.q2;
+
+public class MyListaEncadeada <T>  implements ListaEncadeadaInterface<T> {
+    Node<T> head;
+    Node<T> tail;
+    int size=0;
+
+    public MyListaEncadeada() {
+        head = null;
+        tail = null;
+    }
+
+    public boolean isEmpty() {
+        return head == null && size==0;
+    }
+
+    @Override
+    public boolean adicionar(T elemento) {
+        if(isEmpty()){
+            addAtBeginnig(elemento);
+            return true;
+        }else{
+            Node<T> newNode = new Node<>(elemento);
+            this.tail.setNext(newNode);
+            this.tail = newNode;
+            size++;
+        }
+        return true;
+    }
+
+    private void addAtBeginnig(T elemento) {
+        Node<T> newNode = new Node<>(elemento);
+        this.tail = newNode;
+        this.head = newNode;
+        size++;
+    }
+
+    @Override
+    public boolean remover() {
+        if(isEmpty()){
+            System.out.println("Impossível remover, lista vazia");
+            return false;
+        }
+        if(head == tail){
+            this.head = null;
+            this.tail = null;
+            size--;
+            return true;
+        }
+        Node<T> current = head;
+        while (current.getNext() != tail) {
+            current = current.getNext();
+        }
+        current.setNext(null);
+        this.tail = current;
+        size--;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        if(isEmpty()){
+            return "{}";
+        }
+        StringBuilder str = new StringBuilder("{");
+        Node<T> current = head;
+        while (!current.equals(tail)){
+            str.append(current.getData()).append(", ");
+            current = current.getNext();
+        }
+        str.append(current.getData()).append("}");
+        return str.toString();
+    }
+}
+
+package simuladoAV1.q2;
+
+
+public class Viagem {
+    private String destino;
+
+    public Viagem(String destino) {
+
+        this.destino = destino;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
+    }
+
+    @Override
+    public String toString() {
+        return "destino='" + destino + '\'' +
+                ']';
+    }
+}
+
+package simuladoAV1.q2;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Menu {
+    MyListaEncadeada<Viagem> list = new MyListaEncadeada<>();
+    Scanner sc = new Scanner(System.in);
+    boolean running = true;
+
+
+    public void mainMenu(){
+
+        int choice = 0;
+
+        while(running){
+            try{
+                options();
+                choice = sc.nextInt();
+                functionsSwitch(choice);
+
+            }catch(InputMismatchException e){
+                System.out.println("Opção inválida. Apenas inteiros [0-3]");
+                sc.nextLine();
+            }
+        }
+    }
+
+    public void options(){
+        System.out.println("\nOptions:");
+        System.out.println("0] Sair");
+        System.out.println("1] Adicionar Viagem");
+        System.out.println("2] Remover última Viagem");
+        System.out.println("3] Listar Viagens");
+        System.out.println("Digite uma opção de [0-3]");
+
+    }
+
+    public void functionsSwitch(int choice) {
+        sc.nextLine();
+        switch (choice) {
+            case 0:
+                running = false;
+                break;
+            case 1:
+                adicionar();
+                break;
+            case 2:
+                remover();
+                break;
+            case 3:
+                listar();
+                break;
+            default:
+                System.out.println("Opção inválida. Escolha uma opção válida [0-3].");
+                break;
+        }
+    }
+
+    private void adicionar() {
+        System.out.print("Digite o local de destino: ");
+        String destino;
+        destino = sc.nextLine();
+        list.adicionar(new Viagem(destino));
+        System.out.println("Viagem para " + destino + " adicionada com sucesso!");
+    }
+
+    private void remover() {
+        list.remover();
+    }
+
+    private void listar() {
+        System.out.println(list);
+
+    }
+}
+
+package simuladoAV1.q2;
+
+public class Main {
+    public static void main(String[] args) {
+    Menu menu = new Menu();
+    menu.mainMenu();
+    }
+}
+
+

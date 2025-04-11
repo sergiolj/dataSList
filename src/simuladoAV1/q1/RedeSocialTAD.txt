@@ -1,0 +1,85 @@
+package simuladoAV1.q1;
+
+public interface MyListInterface <T>{
+    boolean add(T object);
+    boolean remove(T object);
+    boolean update(T object);
+}
+
+package simuladoAV1.q1;
+
+public class User {
+    private String name;
+    private int age;
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
+
+package simuladoAV1.q1;
+
+public class SocialNetworkDS<T> implements MyListInterface<User> {
+    private String name;
+    private User user;
+
+    public SocialNetworkDS(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public boolean add(User object) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(User object) {
+        return false;
+    }
+
+    @Override
+    public boolean update(User object) {
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "SocialNetworkDS{" +
+                "name='" + name + '\'' +
+                ", user=" + user +
+                '}';
+    }
+}
+package simuladoAV1.q1;
+
+public class Main{
+    public static void main(String[] args) {
+        var network = new SocialNetworkDS<User>("Rede Social Estrutura de Dados");
+        var u1 = new User("Sergio", 51);
+
+        network.add(u1);
+        network.update(u1);
+        network.remove(u1);
+        System.out.println(network);
+    }
+}
