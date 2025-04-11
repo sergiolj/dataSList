@@ -1,4 +1,4 @@
-package challenges.duplaList;
+package challenges.ListaDupla;
 
 public class Nodo {
     private Nodo proximo;

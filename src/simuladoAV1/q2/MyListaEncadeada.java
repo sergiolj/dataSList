@@ -1,13 +1,13 @@
 package simuladoAV1.q2;
 
 public class MyListaEncadeada <T>  implements ListaEncadeadaInterface<T> {
-    Node<T> head;
-    Node<T> tail;
-    int size=0;
+    private Node<T> head;
+    private Node<T> tail;
+    private int size=0;
 
     public MyListaEncadeada() {
-        head = null;
-        tail = null;
+        this.head = null;
+        this.tail = null;
     }
 
     public boolean isEmpty() {

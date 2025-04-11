@@ -1,6 +1,4 @@
-package challenges.duplaList;
-
-import java.util.LinkedList;
+package challenges.ListaDupla;
 
 public class TestList {
     public static void main(String[] args) {
