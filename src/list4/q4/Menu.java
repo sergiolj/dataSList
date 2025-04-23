@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Menu {
     MyListaDuplaEncadeada<Integer> list = new MyListaDuplaEncadeada<>();
     Scanner sc = new Scanner(System.in);
+    int countDown = 15;
     boolean running = true;
 
 
@@ -22,7 +23,7 @@ public class Menu {
                 functionsSwitch(choice);
 
             }catch(InputMismatchException e){
-                System.out.println("Opção inválida. Apenas inteiros [0-3]");
+                System.out.println("Opção inválida. Apenas inteiros [0-5]");
                 sc.nextLine();
             }
         }
@@ -58,7 +59,6 @@ public class Menu {
             case 4:
                 removerFim();
                 break;
-
             case 5:
                 listar();
                 break;
@@ -69,39 +69,57 @@ public class Menu {
     }
 
     private void removerFim() {
+        list.removerFim();
+        countDown++;
 
     }
 
     private void removerInicio() {
+        list.removerInicio();
+        countDown++;
     }
 
     private void adicionarInicio() {
-        boolean inValidEntry = true;
         int userEntry = 0;
-        while (inValidEntry){
+        if(countDown==0){
+            System.out.println("Lista está cheia. Para adicionar remova elementos antes de tentar novamente.");
+        }
+        while (countDown!=0){
             try{
-                System.out.print("Digite um número inteiro ");
+                System.out.println("Faltam " + countDown + " números para inserir.");
+                System.out.print("Digite um número inteiro ímpar: ");
                 userEntry =  sc.nextInt();
-                list.adicionarInicio(userEntry);
-                System.out.println("Número " + userEntry + " adicionado(a) com sucesso!");
-                inValidEntry = false;
+                if(userEntry%2!=0){
+                    list.adicionarInicio(userEntry);
+                    System.out.println("Número " + userEntry + " adicionado(a) com sucesso!");
+                    countDown--;
+                }else{
+                    System.out.println("Somente números inteiros são permitidos. Tente novamente.");
+                }
             }catch (InputMismatchException e){
-                System.out.println("Opção inválida. Digite um número inteiro.");
+                System.out.println("Opção inválida. Digite um número inteiro ímpar.");
                 sc.nextLine();
             }
         }
     }
 
     private void adicionarFim() {
-        boolean inValidEntry = true;
         int userEntry = 0;
-        while (inValidEntry){
+        if(countDown==0){
+            System.out.println("Lista está cheia. Para adicionar remova elementos antes de tentar novamente.");
+        }
+        while (countDown!=0){
             try{
-                System.out.print("Digite um número inteiro ");
+                System.out.println("Faltam " + countDown + " números para inserir.");
+                System.out.print("Digite um número inteiro ímpar: ");
                 userEntry =  sc.nextInt();
-                list.adicionarFim(userEntry);
-                System.out.println("Número " + userEntry + " adicionado(a) com sucesso!");
-                inValidEntry = false;
+                if(userEntry%2!=0){
+                    list.adicionarFim(userEntry);
+                    System.out.println("Número " + userEntry + " adicionado(a) com sucesso!");
+                    countDown--;
+                }else{
+                    System.out.println("Somente números inteiros são permitidos. Tente novamente.");
+                }
             }catch (InputMismatchException e){
                 System.out.println("Opção inválida. Digite um número inteiro.");
                 sc.nextLine();
