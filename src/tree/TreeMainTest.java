@@ -9,6 +9,6 @@ public class TreeMainTest {
         tree.addRight(12,14);
 
         System.out.println("Imprime árvore binária");
-        tree.showPreOrder();
+        tree.showPostOrder();
     }
 }

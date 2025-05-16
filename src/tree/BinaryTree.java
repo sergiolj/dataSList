@@ -49,7 +49,7 @@ public class BinaryTree <T> implements TreeInterface <T> {
         Node<T> newNode = new Node<>(elementSon);
         newNode.setLeft(null);
         newNode.setRight(null);
-        nodeFather.setRight(newNode);
+        nodeFather.setLeft(newNode);
         return true;
     }
 
@@ -68,27 +68,27 @@ public class BinaryTree <T> implements TreeInterface <T> {
         Node<T> newNode = new Node<>(elementSon);
         newNode.setLeft(null);
         newNode.setRight(null);
-        nodeFather.setLeft(newNode);
+        nodeFather.setRight(newNode);
         return true;
     }
-public void showPreOrder(Node<T> node){
+public void showPostOrder(Node<T> node){
         if(node == null){
             return;
         }
         if(node.getLeft() != null){
-            showPreOrder(node.getLeft());
+            showPostOrder(node.getLeft());
         }
         if(node.getRight() != null){
-            showPreOrder(node.getRight());
+            showPostOrder(node.getRight());
         }
     System.out.println(" " + node.getData());
 }
 
-    public void showPreOrder(){
+    public void showPostOrder(){
         if(isEmpty()){
             System.out.println("Empty Tree");
         }else{
-            showPreOrder(root);
+            showPostOrder(root);
         }
     }
 
