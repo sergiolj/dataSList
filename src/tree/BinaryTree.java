@@ -75,13 +75,17 @@ public void showPostOrder(Node<T> node){
         if(node == null){
             return;
         }
+        System.out.println(" " + node.getData()); //Pré Ordem
+
         if(node.getLeft() != null){
             showPostOrder(node.getLeft());
         }
+        //System.out.println(node.getData()); // Central
+
         if(node.getRight() != null){
             showPostOrder(node.getRight());
         }
-    System.out.println(" " + node.getData());
+        //System.out.println(" " + node.getData()); //Pos Ordem
 }
 
     public void showPostOrder(){
