@@ -1,4 +1,4 @@
-package tree;
+package challenges.arvore;
 
 public class Node <T extends Comparable<T>>  {
     private T data;

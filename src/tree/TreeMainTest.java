@@ -4,11 +4,40 @@ public class TreeMainTest {
     public static void main(String[] args) {
         BinaryTree<Integer> tree = new BinaryTree<>();
 
-        tree.addRoot(12);
-        tree.addLeft(12,10);
-        tree.addRight(12,14);
+//        tree.add(10);
+//        tree.add(15);
+//        tree.add(5);
+//        tree.add(3);
+//        tree.add(7);
+//        tree.add(20);
+//
+//        System.out.println("Imprime pré ordem");
+//        tree.preOrder();
+//
+//        System.out.println("Imprime central ordem");
+//        tree.centerOrder();
+//
+//        System.out.println("Imprime pós ordem");
+//        tree.postOrder();
 
-        System.out.println("Imprime árvore binária");
-        tree.showPostOrder();
+
+        tree.add(50);
+        tree.add(10);
+        tree.add(13);
+        tree.add(14);
+        tree.add(70);
+        tree.add(13);
+        tree.add(11);
+
+        System.out.println("Imprime pré ordem");
+        tree.preOrder();
+
+        System.out.println("Imprime central ordem");
+        tree.inOrder();
+
+        System.out.println("Imprime pós ordem");
+        tree.postOrder();
+
     }
+
 }

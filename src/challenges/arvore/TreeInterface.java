@@ -1,4 +1,4 @@
-package tree;
+package challenges.arvore;
 
 public interface TreeInterface <T extends Comparable<T>>{
 

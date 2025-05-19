@@ -1,4 +1,4 @@
-package tree;
+package challenges.arvore;
 
 public class BinaryTree <T extends Comparable<T>> implements TreeInterface<T> {
     private Node<T> root;
