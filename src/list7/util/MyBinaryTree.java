@@ -150,7 +150,6 @@ public class MyBinaryTree <T extends Comparable<T>> implements MyBinaryTreeInter
     @Override
     public void preOrder() {
         preOrderRec(root);
-        System.out.println();
     }
 
     /**
@@ -169,7 +168,6 @@ public class MyBinaryTree <T extends Comparable<T>> implements MyBinaryTreeInter
     @Override
     public void inOrder() {
         inOrderRec(root);
-        System.out.println();
     }
 
     /**
@@ -190,7 +188,6 @@ public class MyBinaryTree <T extends Comparable<T>> implements MyBinaryTreeInter
     @Override
     public void postOrder() {
         postOrderRec(root);
-        System.out.println();
     }
 
     /**
