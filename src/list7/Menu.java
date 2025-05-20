@@ -13,6 +13,7 @@ public class Menu {
 
     public void mainMenu(){
         addDadosArvore();
+        System.out.print("\nOs nós da arvore de exemplo foram criados na sequência 5,3,9,7,11,4.\n");
         int choice = 0;
 
         while(running){
@@ -40,7 +41,7 @@ public class Menu {
     public void options(){
         System.out.println("\nOptions:");
         System.out.println("0] Sair");
-        System.out.println("1] Exibir encaminhamento central (Central Ordem)");
+        System.out.println("1] Exibir encaminhamento central (Em Ordem)");
         System.out.println("2] Exibir encaminhamento pré fixado (Pré Ordem)");
         System.out.println("3] Exibir encaminhamento pós fixado (Pós Ordem)");
         System.out.println("4] Exibir apenas nós folhas");
@@ -56,7 +57,7 @@ public class Menu {
                 running = false;
                 break;
             case 1:
-                centralOrdem();
+                emOrdem();
                 break;
             case 2:
                 preOrdem();
@@ -78,14 +79,16 @@ public class Menu {
 
     private void posOrdem() {
         if(!tree.isEmpty()){
+            System.out.println();
             tree.postOrder();
         }else{
             msgFilaVazia();
         }
     }
 
-    private void centralOrdem() {
+    private void emOrdem() {
         if(!tree.isEmpty()){
+            System.out.println();
             tree.inOrder();
         }else {
             msgFilaVazia();
@@ -94,6 +97,7 @@ public class Menu {
 
     private void preOrdem() {
         if (!tree.isEmpty()){
+            System.out.println();
             tree.preOrder();
         }else{
             msgFilaVazia();
@@ -102,10 +106,11 @@ public class Menu {
 
     private void exibirPaiFilhos() {
         if(!tree.isEmpty()){
-            System.out.println("Informe o valor do nó pai para ser pequisado.");
+            System.out.println("Informe o valor do nó pai a ser pesquisado.");
             int data = sc.nextInt();
             sc.nextLine();
                 if(tree.contains(data)) {
+                    System.out.println("Exibindo dados em pré-ordem.");
                     tree.fatherAndSons(data);
                 }else{
                     System.out.println("Elemento não encontrado na árvore.");
@@ -117,6 +122,7 @@ public class Menu {
 
     private void exibirFolhas() {
         if (!tree.isEmpty()) {
+            System.out.println();
             tree.leafsOnly();
         } else {
             msgFilaVazia();
