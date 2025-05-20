@@ -68,12 +68,18 @@ public class Menu {
     }
 
     private void apagarArvore() {
-        arvore.clearAll();
-        counter = 0;
-        System.out.println("Arvore binária apagada com sucesso.");
+        if(!arvore.isEmpty()){
+            arvore.clearAll();
+            counter = 0;
+            System.out.println("Árvore binária apagada com sucesso.");
+        }else {
+            System.out.println("Árvore binária está vazia.");
+        }
     }
 
     private void inserirArvoreTeste() {
+        arvore.clearAll();
+        counter = 0;
         arvore.add(50);
         arvore.add(32);
         arvore.add(12);
