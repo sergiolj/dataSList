@@ -3,7 +3,7 @@ package simuladoAV1.collections.LinkedL;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Menu  implements InterfaceMenu {
+public class Menu implements InterfaceMenu {
    private boolean running = true;
    private final Scanner sc = new Scanner(System.in);
    LinkedList<Student> list = new LinkedList<>();
