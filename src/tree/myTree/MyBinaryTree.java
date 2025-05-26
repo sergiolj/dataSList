@@ -93,6 +93,13 @@ public class MyBinaryTree <T extends Comparable<T>> implements MyBinaryTreeInter
         this.root = removeRec(root, data);
     }
 
+    public T getRootData() {
+        if(isEmpty()) {
+            return null;
+        }
+        return this.root.getData();
+    }
+
     private Node<T> removeRec(Node<T> current, T data) {
         if(current == null) {
             return null;

@@ -3,13 +3,12 @@ package tree.myTree;
 public class Main {
     public static void main(String[] args) {
         MyBinaryTree<Integer> tree = new MyBinaryTree<>();
-        tree.add(12);
-        tree.add(15);
-        tree.add(8);
-        tree.add(3);
-        tree.add(40);
         tree.add(5);
-        tree.add(6);
+        tree.add(3);
+        tree.add(4);
+        tree.add(9);
+        tree.add(7);
+        tree.add(11);
 
         System.out.println("Preorder traversal : ");
         tree.preOrder();
@@ -25,10 +24,14 @@ public class Main {
         System.out.println(tree.minimum());
         System.out.println(tree.maximum());
 
-        tree.remove(12);
+        tree.remove(5);
         System.out.println();
         System.out.println(tree.size());
         tree.preOrder();
+
+        System.out.println();
+        System.out.println(tree.getRootData());
+
         System.out.println(tree.contains(40));
         System.out.println(tree.contains(6));
         System.out.println(tree.contains(1));
