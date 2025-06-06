@@ -9,7 +9,6 @@ public class TreeMainTest {
         stringTree.add("Maria");
         stringTree.add("Pedro");
         stringTree.add("Xavier");
-
         stringTree.add("Adão");
         stringTree.preOrder();
 
